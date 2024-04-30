@@ -6,15 +6,17 @@ import { Sheet, SheetContent, SheetTrigger } from "@/ui/sheet";
 import { SideNav } from "./side-nav";
 import Logo from "./logo";
 import useIsMounted from "@/shared/lib/hooks/useIsMounted/useIsMounted";
+import { useSidebar } from "../model/store/sidebar.store";
 
 export default function MobileSidebar() {
-  const [open, setOpen] = useState(false);
+  const isOpen = useSidebar((state) => state.sheet);
+  const setSheet = useSidebar((state) => state.setSheet);
   const { isMounted } = useIsMounted();
   if (!isMounted) return null;
 
   return (
     <>
-      <Sheet open={open} onOpenChange={setOpen}>
+      <Sheet open={isOpen} onOpenChange={setSheet}>
         <SheetTrigger asChild>
           <div className="flex items-center justify-center gap-2">
             <MenuIcon />

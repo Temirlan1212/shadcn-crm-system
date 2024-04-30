@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/shared/class-names/class-names";
 import { useSidebar } from "../model/store/sidebar.store";
 import { buttonVariants } from "@/ui/button";
@@ -95,10 +95,11 @@ function NavAccordionItem({
 
 function NavLinkItem({ item, variant, tooltip, className }: NavItemProps) {
   const path = usePathname() || "";
-  const sidebar = useSidebar();
+  const sidebarIsOpen = useSidebar((state) => state.isOpen);
+  const setSheet = useSidebar((state) => state.setSheet);
   const staticState =
     variant === "closed" ? false : variant === "opened" && true;
-  const isOpen = variant === "toggle" ? sidebar.isOpen : staticState;
+  const isOpen = variant === "toggle" ? sidebarIsOpen : staticState;
 
   return (
     <NavItemTooltip
@@ -113,6 +114,9 @@ function NavLinkItem({ item, variant, tooltip, className }: NavItemProps) {
             "group relative flex h-12 pr-3 justify-start gap-x-3",
             path === item.path.pathname && "bg-muted hover:bg-muted"
           )}
+          onClick={() => {
+            if (variant === "opened") setSheet(false);
+          }}
         >
           <item.icon className={cn("h-5 w-5", item.color)} />
           <div

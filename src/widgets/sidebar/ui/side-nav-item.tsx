@@ -186,7 +186,7 @@ function NavItemTooltip({
   return (
     isMounted && (
       <Tooltip delayDuration={0.3}>
-        <TooltipTrigger>{trigger || ""}</TooltipTrigger>
+        <TooltipTrigger className="w-full">{trigger || ""}</TooltipTrigger>
         <TooltipContent
           side="right"
           className="mt-[6px] bg-foreground/[.8]"

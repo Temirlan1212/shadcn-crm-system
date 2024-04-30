@@ -5,9 +5,9 @@ import {
   Home,
   List,
   MessageSquareMore,
+  Pipette,
   Search,
   Settings,
-  Thermometer,
 } from "lucide-react";
 
 export const NavItems: INavItem[] = [
@@ -57,5 +57,14 @@ export const NavItems: INavItem[] = [
     path: { pathname: "/settings" },
     color: "text-500",
     position: "bottom",
+    isChidren: true,
+    children: [
+      {
+        title: "Цвет интерфейса",
+        icon: Pipette,
+        color: "text-500",
+        path: { pathname: "/settings/theme" },
+      },
+    ],
   },
 ];

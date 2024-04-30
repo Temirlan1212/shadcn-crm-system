@@ -35,7 +35,7 @@ export default function Sidebar({ className }: SidebarProps) {
 
       <ArrowLeft
         className={cn(
-          "absolute -right-4 top-[50px] cursor-pointer p-[6px] rounded-full border bg-background text-3xl text-foreground h-8 w-8",
+          "absolute -right-4 top-[50px] z-10 cursor-pointer p-[6px] rounded-full border bg-background text-3xl text-foreground h-8 w-8",
           !isOpen && "rotate-180"
         )}
         onClick={handleToggle}

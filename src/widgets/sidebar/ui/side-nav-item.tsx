@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/shared/class-names/class-names";
 import { useSidebar } from "../model/store/sidebar.store";
 import { buttonVariants } from "@/ui/button";
-import { HTMLAttributes, PropsWithChildren, useEffect, useState } from "react";
+import { HTMLAttributes, PropsWithChildren, useState } from "react";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import {
   Accordion,
@@ -87,8 +87,9 @@ function NavAccordionItem({
           </AccordionItem>
         </Accordion>
       }
-      children={item.title}
-    />
+    >
+      {item.title}
+    </NavItemTooltip>
   );
 }
 
@@ -124,8 +125,9 @@ function NavLinkItem({ item, variant, tooltip, className }: NavItemProps) {
           </div>
         </Link>
       }
-      children={item.title}
-    />
+    >
+      {item.title}
+    </NavItemTooltip>
   );
 }
 
@@ -164,8 +166,9 @@ function NavItem({
           </div>
         </div>
       }
-      children={item.title}
-    />
+    >
+      {item.title}
+    </NavItemTooltip>
   );
 }
 

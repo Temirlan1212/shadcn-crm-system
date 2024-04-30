@@ -22,25 +22,30 @@ function SideNav({ className, media }: SideNavProps) {
   return (
     <nav className="space-y-2 flex flex-col justify-between h-full">
       <div className="flex flex-col space-y-1">
-        {topItems.map((item) =>
+        {topItems.map((item, index) =>
           item.isChidren ? (
             <NavAccordionItem
               {...navItemsProps}
-              key={item.title}
+              key={index}
               item={item}
               className={className}
             >
               {item.children?.map((child) => (
                 <NavLinkItem
                   {...navItemsProps}
-                  key={child.title}
                   item={child}
                   className={className}
+                  key={item.title + index}
                 />
               ))}
             </NavAccordionItem>
           ) : (
-            <NavLinkItem {...navItemsProps} item={item} className={className} />
+            <NavLinkItem
+              {...navItemsProps}
+              item={item}
+              className={className}
+              key={index}
+            />
           )
         )}
       </div>
@@ -48,25 +53,30 @@ function SideNav({ className, media }: SideNavProps) {
       <div className="flex flex-col space-y-1">
         <SideNavThemeToggle {...navItemsProps} className={className} />
 
-        {bottomItems.map((item) =>
+        {bottomItems.map((item, index) =>
           item.isChidren ? (
             <NavAccordionItem
               {...navItemsProps}
-              key={item.title}
+              key={index}
               item={item}
               className={className}
             >
               {item.children?.map((child) => (
                 <NavLinkItem
                   {...navItemsProps}
-                  key={child.title}
                   item={child}
                   className={className}
+                  key={item.title + index}
                 />
               ))}
             </NavAccordionItem>
           ) : (
-            <NavLinkItem {...navItemsProps} item={item} className={className} />
+            <NavLinkItem
+              {...navItemsProps}
+              item={item}
+              className={className}
+              key={index}
+            />
           )
         )}
       </div>

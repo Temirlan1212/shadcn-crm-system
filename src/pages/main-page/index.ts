@@ -1,2 +1,2 @@
 import MainPage from "./ui/main-page";
-export { MainPage };
+export default MainPage;

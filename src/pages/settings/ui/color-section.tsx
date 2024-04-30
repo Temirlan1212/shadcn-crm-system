@@ -57,7 +57,7 @@ function ThemeButton({ type }: { type: "dark" | "light" }) {
   );
 }
 
-export function ColorSection() {
+export default function ColorSection() {
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-3">
